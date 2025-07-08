@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Build & Debug executable",
+            "type": "lldb",
+            "request": "launch",
+            "preLaunchTask": "cargo build",
+            "program": "${workspaceFolder}/target/debug/simple-chip8-emu",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopOnEntry": false,
+            "sourceLanguages": ["rust"]
+        }
+    ]
+}
