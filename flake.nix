@@ -15,16 +15,35 @@
           inherit system overlays;
         };
         rustToolchain = pkgs.rust-bin.stable.latest.default;
+
+        buildInputs = with pkgs; [
+            lldb
+
+            cargo
+            cargo-edit
+
+            openssl
+
+            expat
+            fontconfig
+            freetype
+            freetype.dev
+            libGL
+            pkg-config
+            xorg.libX11
+            xorg.libXcursor
+            xorg.libXi
+            xorg.libXrandr
+            wayland
+            libxkbcommon
+          ];
       in
       {
         devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            lldb
-            pkg-config
-            cargo
-            cargo-edit
-            openssl
-          ] ++ [
+          LD_LIBRARY_PATH =
+            builtins.foldl' (a: b: "${a}:${b}/lib") "${pkgs.vulkan-loader}/lib" buildInputs;
+
+          buildInputs = buildInputs ++ [
             rustToolchain
           ];
           shellHook = ''

@@ -14,6 +14,7 @@ pub trait Display {
     fn write(&mut self, address: u16, value: u16);
 }
 
+#[derive(Default, Debug, Clone)]
 pub struct Chip8Display {
     pub width: u16,
     pub height: u16,
