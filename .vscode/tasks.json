@@ -1,21 +1,50 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "cargo build",
-            "type": "shell",
-            "command": "cargo",
-            "args": ["build"],
-            "group": "build",
-            "problemMatcher": ["$rustc"]
-        },
-        {
-            "label": "cargo run",
-            "type": "shell",
-            "command": "cargo",
-            "args": ["run"],
-            "group": "test",
-            "problemMatcher": ["$rustc"]
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    // This is the first task to be used with other tasks.
+    //    make sure to setup nix to run
+    {
+      "label": "nix-develop",
+      "type": "shell",
+      "command": "nix",
+      "args": [
+        "develop"
+      ],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "cargo build",
+      "type": "shell",
+      "command": "cargo",
+      "args": [
+        "build"
+      ],
+      "group": "build",
+      "problemMatcher": [
+        "$rustc"
+      ]
+    },
+    {
+      "label": "cargo run",
+      "type": "shell",
+      "command": "cargo",
+      "args": [
+        "run"
+      ],
+      "group": "test",
+      "problemMatcher": [
+        "$rustc"
+      ]
+    }
+  ]
 }

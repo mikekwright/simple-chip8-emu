@@ -22,6 +22,7 @@
             lldb
             pkg-config
             cargo
+            cargo-edit
             openssl
           ] ++ [
             rustToolchain

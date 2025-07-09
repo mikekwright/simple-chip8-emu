@@ -1,12 +1,24 @@
-# simple-chip8-emu
+Simple Chip-8 EMU
+==================================
 
-A simple CHIP-8 emulator written in Rust.
+A repository as I work on creating a chip-8 interpreter, because this project
+sounds like fun and could be a great way to get into rust dev.
 
-## Prerequisites
+References
+-----------------------------------
 
-- [Rust](https://www.rust-lang.org/tools/install) (install with `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`)
-- [VS Code](https://code.visualstudio.com/)
-- Recommended: [rust-analyzer extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+* [Chip8 Github](https://chip-8.github.io/links/)
+* [Tutorial on Chip-8 Emulator](https://tobiasvl.github.io/blog/write-a-chip-8-emulator/)
+* [Blog on Chip-8](https://otavio.dev/2024/12/08/chip-8-emulation/)
+* [Chip-8 Instructions from Octo-ide](https://johnearnest.github.io/Octo/docs/chip8ref.pdf)
+* [Octo a Chip-8 IDE](https://github.com/JohnEarnest/Octo)
+
+Development Prerequisites
+-----------------------------------
+
+* [Rust](https://www.rust-lang.org/tools/install)
+* [VS Code](https://code.visualstudio.com/)
+* [VS Code Extension - ] [rust-analyzer extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
 
 ## Build
 
@@ -27,12 +39,12 @@ cargo run
 
 ## Project Structure
 
-- `src/` - Rust source files
-- `Cargo.toml` - Rust project manifest
+* `src/` - Rust source files
+* `Cargo.toml` - Rust project manifest
 
 ## Resources
 
-- [CHIP-8 Wikipedia](https://en.wikipedia.org/wiki/CHIP-8)
+* [CHIP-8 Wikipedia](https://en.wikipedia.org/wiki/CHIP-8)
 
 ---
 
