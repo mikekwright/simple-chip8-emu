@@ -28,9 +28,20 @@ cargo build
 
 ## Run
 
+### GUI Mode (Default)
 ```
 cargo run
+# or explicitly
+cargo run -- --mode gui
 ```
+
+### TUI Mode (Terminal UI)
+```
+cargo run -- --mode tui
+```
+
+The emulator supports both graphical (Iced) and terminal-based (Ratatui) display modes. 
+See [USAGE.md](USAGE.md) for detailed usage instructions and controls.
 
 ## Debug in VS Code
 

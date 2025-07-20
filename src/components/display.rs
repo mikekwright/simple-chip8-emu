@@ -1,16 +1,5 @@
-use iced::widget::{button, column, text};
+// GUI display components for the CHIP-8 emulator
+// This module contains Iced-specific display components
 
-
-impl IcedDisplay {
-    fn view(&self) {
-        // The buttons
-        let increment = button("+").on_press(Message::Increment);
-        let decrement = button("-").on_press(Message::Decrement);
-
-        // The number
-        let counter = text(self.value);
-
-        // The layout
-        let interface = column![increment, counter, decrement];
-    }
-}
+// Future implementation for Iced display components
+// This will be implemented when the emulator core is more complete

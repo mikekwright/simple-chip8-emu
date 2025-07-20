@@ -22,3 +22,14 @@ how it approaches widgets.  Main focus is still on the app startup
 and the visual component being setup.
 
 (Also spent time getting ai instructions added, hoping it will help)
+
+July 20th, 2025
+---------------------------------------
+
+At this time was looking over the project and the thought came to use
+a console gui instead (which is a TUI).  So I used copilot to generate
+the framework that allows for both a TUI and GUI.  This introduced:
+
+* [ratatui](https://ratatui.rs/tutorials/hello-ratatui/)
+* [crossterm](https://docs.rs/crossterm/latest/crossterm/)
+* a cli parsing solution [clap](https://docs.rs/clap/latest/clap/)

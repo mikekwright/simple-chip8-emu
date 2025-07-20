@@ -30,7 +30,7 @@ impl Display for Chip8Display {
     }
 
     fn clear(&mut self) {
-        self.pixels.clear();
+        self.pixels.fill(0);
     }
 
     fn read(&self, address: u16) -> u16 {
@@ -50,6 +50,29 @@ impl Chip8Display {
             width: 64,
             height: 32,
             pixels: vec![0; 64 * 32],
+        }
+    }
+
+    /// Get a reference to the pixel buffer
+    pub fn pixels(&self) -> &[u16] {
+        &self.pixels
+    }
+
+    /// Set a pixel at the given coordinates
+    pub fn set_pixel(&mut self, x: u16, y: u16, value: u16) {
+        if x < self.width && y < self.height {
+            let addr = y * self.width + x;
+            self.write(addr, value);
+        }
+    }
+
+    /// Get a pixel at the given coordinates
+    pub fn get_pixel(&self, x: u16, y: u16) -> u16 {
+        if x < self.width && y < self.height {
+            let addr = y * self.width + x;
+            self.read(addr)
+        } else {
+            0
         }
     }
 }
