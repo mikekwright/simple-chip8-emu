@@ -5,6 +5,7 @@
 This CHIP-8 emulator supports two display modes:
 
 ### GUI Mode (Default)
+
 Uses Iced framework for a graphical user interface.
 
 ```bash
@@ -16,6 +17,7 @@ cargo run -- --mode gui
 ```
 
 ### TUI Mode
+
 Uses Ratatui and Crossterm for a terminal-based user interface.
 
 ```bash

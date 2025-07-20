@@ -77,7 +77,7 @@ impl TuiDisplay {
     fn draw(&mut self) -> Result<(), Box<dyn std::error::Error>> {
         let display_clone = self.chip8_display.clone();
         let counter = self.counter;
-        
+
         self.terminal.draw(|f| {
             let chunks = Layout::default()
                 .direction(Direction::Vertical)
@@ -131,7 +131,7 @@ impl TuiDisplay {
     fn render_chip8_display_static(display: &Chip8Display, f: &mut Frame, area: Rect) {
         // Create a simple text-based representation of the display
         let mut display_text = String::new();
-        
+
         for y in 0..display.height() {
             for x in 0..display.width() {
                 if display.get_pixel(x, y) != 0 {
@@ -155,8 +155,8 @@ impl TuiDisplay {
     fn render_info_panel_static(display: &Chip8Display, counter: u64, f: &mut Frame, area: Rect) {
         let info_items = vec![
             ListItem::new(format!("Counter: {}", counter)),
-            ListItem::new(format!("Display: {}x{}", 
-                display.width(), 
+            ListItem::new(format!("Display: {}x{}",
+                display.width(),
                 display.height()
             )),
             ListItem::new("Status: Running"),
