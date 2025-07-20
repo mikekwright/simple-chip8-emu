@@ -12,7 +12,7 @@ use crate::components::tui_display::TuiDisplay;
 #[command(about = "A simple CHIP-8 emulator with GUI and TUI options")]
 struct Cli {
     /// Display mode to use
-    #[arg(short, long, value_enum, default_value_t = DisplayMode::Gui)]
+    #[arg(short, long, value_enum, default_value_t = DisplayMode::Tui)]
     mode: DisplayMode,
 }
 
