@@ -78,7 +78,7 @@ impl TuiDisplay {
         let display_clone = self.chip8_display.clone();
         let counter = self.counter;
 
-        self.terminal.draw(|render_frame| {
+        self.terminal.draw(|f| {
             let chunks = Layout::default()
                 .direction(Direction::Vertical)
                 .margin(1)
@@ -87,13 +87,13 @@ impl TuiDisplay {
                     Constraint::Min(20),
                     Constraint::Length(5),
                 ])
-                .split(render_frame.size());
+                .split(f.size());
 
             // Title block
             let title = Paragraph::new("CHIP-8 Emulator - TUI Mode")
                 .style(Style::default().fg(Color::Cyan).add_modifier(Modifier::BOLD))
                 .block(Block::default().borders(Borders::ALL).title("CHIP-8 TUI"));
-            render_frame.render_widget(title, chunks[0]);
+            f.render_widget(title, chunks[0]);
 
             // Main display area
             let display_area = Layout::default()
@@ -102,10 +102,10 @@ impl TuiDisplay {
                 .split(chunks[1]);
 
             // CHIP-8 Display
-            Self::render_chip8_display_static(&display_clone, render_frame, display_area[0]);
+            Self::render_chip8_display_static(&display_clone, f, display_area[0]);
 
             // Info panel
-            Self::render_info_panel_static(&display_clone, counter, render_frame, display_area[1]);
+            Self::render_info_panel_static(&display_clone, counter, f, display_area[1]);
 
             // Controls
             let controls = Paragraph::new(vec![
@@ -122,7 +122,7 @@ impl TuiDisplay {
                 ]),
             ])
             .block(Block::default().borders(Borders::ALL).title("Controls"));
-            render_frame.render_widget(controls, chunks[2]);
+            f.render_widget(controls, chunks[2]);
         })?;
 
         Ok(())
