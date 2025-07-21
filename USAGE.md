@@ -1,5 +1,49 @@
 # CHIP-8 Emulator Usage Guide
 
+## Build Options
+
+This emulator supports selective compilation using Cargo features to reduce binary size:
+
+### Feature Flags
+
+- `gui` - Includes GUI support (Iced, egui, eframe)
+- `tui` - Includes TUI support (ratatui, crossterm)
+- `default` - Both GUI and TUI features
+
+### Helper Scripts
+
+For convenience, several helper scripts are available in the `bin/` folder:
+
+```bash
+# View detailed build options and examples
+bash bin/build_help.sh
+
+# Test all build combinations
+bash bin/verify_builds.sh
+
+# Run comprehensive test suite
+bash bin/test_all.sh
+```
+
+### Build Configurations
+
+```bash
+# Build with both GUI and TUI (default)
+cargo build
+cargo run
+
+# Build TUI-only version (much smaller binary)
+cargo build --no-default-features --features tui
+cargo run --no-default-features --features tui
+
+# Build GUI-only version
+cargo build --no-default-features --features gui
+cargo run --no-default-features --features gui
+
+# Release builds for smaller, optimized binaries
+cargo build --release --no-default-features --features tui
+```
+
 ## Display Modes
 
 This CHIP-8 emulator supports two display modes:

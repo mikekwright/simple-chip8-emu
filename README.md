@@ -22,9 +22,32 @@ Development Prerequisites
 
 ## Build
 
+### Default Build (Both GUI and TUI)
+
 ```
 cargo build
 ```
+
+### Feature-Specific Builds
+
+This project supports selective compilation to reduce binary size:
+
+```bash
+# TUI-only build (much smaller binary)
+cargo build --no-default-features --features tui
+
+# GUI-only build  
+cargo build --no-default-features --features gui
+
+# Release builds for optimized binaries
+cargo build --release --no-default-features --features tui
+```
+
+**Benefits of TUI-only build:**
+
+* Significantly smaller binary size
+* Excludes all GUI dependencies (iced, egui, eframe)
+* Perfect for server environments or minimal installations
 
 ## Run
 
@@ -45,6 +68,21 @@ cargo run -- --mode tui
 The emulator supports both graphical (Iced) and terminal-based (Ratatui) display modes.
 See [USAGE.md](USAGE.md) for detailed usage instructions and controls.
 
+## Scripts
+
+Helper scripts are located in the `bin/` folder:
+
+```bash
+# View all build options and commands
+bash bin/build_help.sh
+
+# Verify all build combinations work
+bash bin/verify_builds.sh
+
+# Run comprehensive test suite
+bash bin/test_all.sh
+```
+
 ## Debug in VS Code
 
 1. Open this folder in VS Code.
@@ -53,6 +91,7 @@ See [USAGE.md](USAGE.md) for detailed usage instructions and controls.
 ## Project Structure
 
 * `src/` - Rust source files
+* `bin/` - Helper scripts for building and testing
 * `Cargo.toml` - Rust project manifest
 
 ## Resources

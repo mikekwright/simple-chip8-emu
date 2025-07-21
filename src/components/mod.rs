@@ -1,2 +1,1 @@
-pub mod display;
-pub mod tui_display;
+pub mod gui_display;

@@ -3,11 +3,21 @@ name = "simple-chip8-emu"
 version = "0.1.0"
 edition = "2024"
 
+[features]
+default = ["tui"]
+gui = ["dep:eframe", "dep:egui", "dep:iced"]
+tui = ["dep:ratatui", "dep:crossterm"]
+
 [dependencies]
-eframe = "0.27"
-egui = "0.27"
-iced = { version = "0.12", features = ["tokio"] }
-ratatui = "0.26"
-crossterm = "0.27"
+# GUI dependencies (optional)
+eframe = { version = "0.27", optional = true }
+egui = { version = "0.27", optional = true }
+iced = { version = "0.12", features = ["tokio"], optional = true }
+
+# TUI dependencies (optional)
+ratatui = { version = "0.26", optional = true }
+crossterm = { version = "0.27", optional = true }
+
+# Common dependencies
 tokio = { version = "1", features = ["full"] }
 clap = { version = "4", features = ["derive"] }

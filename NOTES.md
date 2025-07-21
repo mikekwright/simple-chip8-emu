@@ -33,3 +33,7 @@ the framework that allows for both a TUI and GUI.  This introduced:
 * [ratatui](https://ratatui.rs/tutorials/hello-ratatui/)
 * [crossterm](https://docs.rs/crossterm/latest/crossterm/)
 * a cli parsing solution [clap](https://docs.rs/clap/latest/clap/)
+
+The next thing was to figure out how to optimize the build to not include
+the gui code, but still have it available. (Finding out this is a
+cargo `feature flag`)
